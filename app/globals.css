@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F8F9FB;
+  --foreground: #1A1C1E;
+  --card: #FFFFFF;
+  --border: #E9ECEF;
+  --primary: #4F46E5; /* Purple Identity */
+  --secondary: #10B981; /* Green Identity */
+  --accent: #F59E0B; /* Yellow Identity */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .glass-header {
+    @apply bg-white/70 backdrop-blur-xl border-b border-white/20;
+  }
+
+  .bento-card {
+    @apply bg-white rounded-[1.5rem] border border-[#E9ECEF] shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300;
+  }
+
+  .hover-lift {
+    @apply hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.06)];
+  }
+
+  .pill-badge {
+    @apply px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.1em] border;
+  }
+
+  .progress-track {
+    @apply h-3 bg-[#F1F3F5] rounded-full overflow-hidden p-0.5;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .bg-mesh-light {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(243,100%,95%,1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,100%,98%,1) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,100%,98%,1) 0, transparent 50%);
+  }
+
+  .emblem-container {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm border border-opacity-10;
+  }
+}
+
+/* Gauge Animation */
+@keyframes dash {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: var(--offset); }
+}
+
+.animate-gauge {
+  animation: dash 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F1F3F5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CED4DA;
+  border-radius: 10px;
+  border: 2px solid #F1F3F5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #ADB5BD;
+}
