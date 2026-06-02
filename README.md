@@ -152,4 +152,4 @@ Buka [http://localhost:3000](http://localhost:3000)
 ## Lisensi
 
 Proyek ini dibuat untuk keperluan administrasi kecamatan.  
-© 2025 SIDOKU — Sistem Informasi Dokumen Kecamatan
+© 2026 SIDOKU — Sistem Informasi Dokumen Kecamatan
