@@ -3,8 +3,9 @@
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { LogOut } from 'lucide-react';
+import { clsx } from 'clsx';
 
-export default function SidebarLogout() {
+export default function SidebarLogout({ collapsed = false }: { collapsed?: boolean }) {
   const router = useRouter();
 
   async function handleLogout() {
@@ -16,9 +17,15 @@ export default function SidebarLogout() {
   return (
     <button
       onClick={handleLogout}
-      className="flex items-center gap-3 text-rose-500 font-black text-sm hover:translate-x-1 transition-all"
+      title={collapsed ? 'Keluar' : undefined}
+      aria-label="Keluar"
+      className={clsx(
+        'flex items-center gap-3 text-rose-500 font-black text-sm transition-all',
+        collapsed ? 'lg:justify-center lg:gap-0' : 'hover:translate-x-1'
+      )}
     >
-      <LogOut size={18} /> Keluar
+      <LogOut size={18} className="flex-shrink-0" />
+      <span className={clsx(collapsed && 'lg:hidden')}>Keluar</span>
     </button>
   );
 }
